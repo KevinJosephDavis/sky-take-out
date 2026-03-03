@@ -12,6 +12,36 @@ spring:
       url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
+      # 初始化连接池大小
+      initial-size: 5
+      # 最小空闲连接数
+      min-idle: 5
+      # 最大活跃连接数
+      max-active: 20
+      # 获取连接最大等待时间（毫秒）
+      max-wait: 60000
+      # 检测间隔，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 60000
+      # 连接最小生存时间（毫秒）
+      min-evictable-idle-time-millis: 300000
+      # 连接最大生存时间（毫秒）
+      max-evictable-idle-time-millis: 900000
+      # 用来检测连接是否有效的 SQL
+      validation-query: SELECT 1
+      # 建议配置为 false，性能更高
+      test-while-idle: true
+      # 申请连接时检测，如果空闲时间大于 timeBetweenEvictionRunsMillis，执行 validationQuery
+      test-on-borrow: false
+      # 归还连接时检测
+      test-on-return: false
+      # 是否缓存 PreparedStatement
+      pool-prepared-statements: true
+      # 设置监控统计拦截的 filters
+      filters: stat,wall,slf4j
+      # 每个连接上 PSCache 的大小
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置扩展插件
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
 mybatis:
   #mapper配置文件
@@ -31,9 +61,14 @@ logging:
 
 sky:
   jwt:
-    # 设置jwt签名加密时使用的秘钥
+    # 设置 jwt 签名加密时使用的秘钥
     admin-secret-key: itcast
-    # 设置jwt过期时间
+    # 设置 jwt 过期时间
     admin-ttl: 7200000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+  alioss:
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
