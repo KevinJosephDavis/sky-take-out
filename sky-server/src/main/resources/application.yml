@@ -62,13 +62,13 @@ logging:
 sky:
   jwt:
     # 设置 jwt 签名加密时使用的秘钥
-    admin-secret-key: itcast
+    admin-secret-key: ${JWT_ADMIN_SECRET_KEY}
     # 设置 jwt 过期时间
     admin-ttl: 7200000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
   alioss:
-    endpoint: ${sky.alioss.endpoint}
-    access-key-id: ${sky.alioss.access-key-id}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    bucket-name: ${sky.alioss.bucket-name}
+    endpoint: ${OSS_ENDPOINT}
+    access-key-id: ${OSS_ACCESS_KEY_ID}
+    access-key-secret: ${OSS_ACCESS_KEY_SECRET}
+    bucket-name: ${OSS_BUCKET_NAME}

@@ -4,3 +4,8 @@
 *.class
 *Test.java
 **/test/
+
+.env
+.env.local
+*.env
+*.env.local
