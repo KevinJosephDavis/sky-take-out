@@ -11,3 +11,10 @@ sky:
     access-key-id: ${OSS_ACCESS_KEY_ID}
     access-key-secret: ${OSS_ACCESS_KEY_SECRET}
     bucket-name: ${OSS_BUCKET_NAME}
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  wechat:
+    appid: wxcb0f9a0b2047e0f1
+    secret: 1710f0a79f69c28d6cf3f2a4fd83a646

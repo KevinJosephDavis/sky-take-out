@@ -42,6 +42,10 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
       # 配置扩展插件
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  redis:
+    host: ${sky.redis.host}
+    port: ${sky.redis.port}
+    database: ${sky.redis.database}
 
 mybatis:
   #mapper配置文件
@@ -67,8 +71,20 @@ sky:
     admin-ttl: 7200000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+    user-secret-key: tkevinjd
+    user-ttl: 7200000000
+    user-token-name: authentication
+
   alioss:
     endpoint: ${OSS_ENDPOINT}
     access-key-id: ${OSS_ACCESS_KEY_ID}
     access-key-secret: ${OSS_ACCESS_KEY_SECRET}
     bucket-name: ${OSS_BUCKET_NAME}
+
+  wechat:
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
+
+  baidu:
+    address: 华南理工大学
+    ak: QzM3t8wwp9zIvVX9K0yW0PQXRIEB6Gbw
